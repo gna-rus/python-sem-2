@@ -1,0 +1,29 @@
+'''
+Задача 14: Требуется вывести все целые степени двойки (т.е. числа вида 2k), не превосходящие числа N.
+'''
+def fun_pow(num):
+    """
+:param num: max number for pow
+:return: None
+    """
+    i = 0
+    while (True):
+        if pow(2, i) <= num:
+            print(pow(2, i), end=" ")
+            i += 1
+        else:
+            break
+
+try:
+    num1 = int(input())
+except:
+    print("Что-то пошло не так")
+    quit()
+
+if num1 > 0:
+    fun_pow(num1)
+else:
+    print("Введено число меньше или равное Нулю")
+
+
+

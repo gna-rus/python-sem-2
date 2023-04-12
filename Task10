@@ -1,0 +1,40 @@
+'''
+Задача 10: На столе лежат n монеток. Некоторые из них лежат вверх решкой, а некоторые – гербом.
+Определите минимальное число монеток, которые нужно перевернуть,
+чтобы все монетки были повернуты вверх одной и той же стороной.
+Выведите минимальное количество монет, которые нужно перевернуть
+'''
+from random import randint
+def Filling_of_list(num):
+    """
+:param num: this is len of list with 0 or 1
+:return: list with the line of "0" or "1"
+    """
+
+    return [randint(0,1) for i in range(num)]
+
+while(True):
+    try:
+        num = int(input("Введите количество монет: "))
+        if num <= 0 or num > 1000000: # ограничение на количество монет (что бы программа не работала долго)
+                                      # и на отрицательное кол-во моент
+            raise Exception ("")
+        else:
+            break
+    except:
+        print("Введите корректное число монет")
+
+list1 = Filling_of_list(num)
+# print(Filling_of_list.__doc__)
+print(list1)
+min_count0 = list1.count(0)
+min_count1 = list1.count(1)
+
+if (min_count0 == min_count1):
+    print("Неоднозначнй ответ")
+elif (min_count1 < min_count0):
+    print(f"Минимальное количество монет для переворачивания 1 -> 0: {min_count1} шт")
+elif  (min_count0 < min_count1):
+    print(f"Минимальное количество монет для переворачивания 0 -> 1: {min_count0} шт")
+else:
+    print("Неоднозначнй ответ")
