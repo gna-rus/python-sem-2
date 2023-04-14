@@ -16,13 +16,13 @@ def Filling_of_list(num):
 while(True):
     try:
         n = int(input()) # количество монет
-        if n == 0 or len1 > 1000000:
+        if n <= 0 or n > 1000000:
             raise Exception()
             continue
         list1 = Filling_of_list(n)
         break
     except:
-        print("Введите целое число")
+        print("Введите целое число больше нуля")
 
 # print(Filling_of_list.__doc__)
 print(list1)
@@ -33,5 +33,7 @@ if min_count0 > min_count1:
     print(f"Минимальное количество монет для переворачивания 1 -> 0: {min_count1} шт")
 elif  min_count1 > min_count0:
     print(f"Минимальное количество монет для переворачивания 0 -> 1: {min_count0} шт")
+elif (min_count0 == 0 and min_count1 != 0) or (min_count0 != 0 and min_count1 == 0):
+    print("Случилась очень исключительная ситуация")
 else:
     print("Неоднозначнй ответ")
